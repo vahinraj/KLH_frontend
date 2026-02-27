@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global CSS Variables & Theme */
+:root {
+  --color-deep-red: #b91c1c;
+  --color-bg-light: #f1f5f9;
+  --color-bg-card: #ffffff;
+  --color-text-dark: #000000;
+  --color-text-light: #64748b;
+}
+
+/* Input Field Hotfix - Ensure Visible Text */
+input,
+textarea,
+select {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #64748b !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border: 2px solid #b91c1c !important;
+  box-shadow: 0 0 0 3px rgba(196, 194, 194, 0.1) !important;
+}
+
+/* Card Elevation & Modern Look */
+.card-elevated {
+  @apply bg-white rounded-2xl shadow-xl;
+}
+
+/* Button Tactile Feedback */
+button:not(:disabled) {
+  @apply transition-transform duration-200;
+}
+
+button:not(:disabled):hover {
+  @apply scale-105;
+}
+
+button:not(:disabled):active {
+  @apply scale-95;
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  /* subtle dot-matrix texture on gray background */
+  .bg-dot-matrix {
+    background-image: radial-gradient(currentColor 1px, transparent 1px);
+    background-size: 4px 4px;
+    color: #f9fafb; /* light gray dots */
+  }
+  .shadow-glow {
+    box-shadow: 0 0 12px rgba(184, 28, 28, 0.6);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes borderGlow {
+  from { box-shadow: 0 0 0 rgba(184, 28, 28, 0.2); }
+  to { box-shadow: 0 0 16px rgba(184, 28, 28, 0.6); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Stagger delays for card animations */
+.card-stagger-1 { animation: slideUpFade 0.6s ease-out 0.1s both; }
+.card-stagger-2 { animation: slideUpFade 0.6s ease-out 0.2s both; }
+.card-stagger-3 { animation: slideUpFade 0.6s ease-out 0.3s both; }
+.card-stagger-4 { animation: slideUpFade 0.6s ease-out 0.4s both; }
+.card-stagger-5 { animation: slideUpFade 0.6s ease-out 0.5s both; }
+
