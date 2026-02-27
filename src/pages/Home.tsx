@@ -53,16 +53,8 @@ export default function Home() {
       </main>
 
       {showLogin && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in">
-          <div className="relative">
-            <Login />
-            <button
-              onClick={() => setShowLogin(false)}
-              className="absolute top-2 right-2 text-white text-xl"
-            >
-              &times;
-            </button>
-          </div>
+        <div className="fixed inset-0 z-50 animate-fade-in">
+          <Login onClose={() => setShowLogin(false)} />
         </div>
       )}
     </div>
